@@ -3,7 +3,7 @@
 
 
 @commands.command()
-async def announce(ctx ,message, args):
+async def announce(self, ctx, *, message : str = None):
     content = ' '.join(args)
     announcement = discord.Embed(color=0x3B88C3)
     author_name = f'{message.author.name}#{message.author.discriminator}'
@@ -11,7 +11,7 @@ async def announce(ctx ,message, args):
     announcement.add_field(name=f'🌐 A Global {cmd.bot.user.name} Announcement', value=content)
     announcement.set_footer(text=f'Announced from {message.guild.name}', icon_url=message.guild.icon_url)
     sent_counter = 0
-    for guild in cmd.bot.guilds:
+    for server in self.bot.guilds:
         try:
             await guild.owner.send(embed=announcement)
             sent_counter += 1
