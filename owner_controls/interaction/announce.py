@@ -21,3 +21,7 @@ async def announce(self, ctx, *, message : str = None):
             pass
     response = discord.Embed(color=0x77B255, title=f'✅ Announcement sent to {sent_counter} guilds.')
     await ctx.send(embed=response)
+
+    
+def setup(bot):
+    bot.add_cog(broadcast(bot))     
