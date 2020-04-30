@@ -3,9 +3,12 @@ import asyncio
 import os
 from discord.ext import commands
 
+class broadcast(commands.Cog):
+    def __init__(self,bot):
+        self.bot = bot
 
-@commands.command()
-async def announce(self, ctx, *, message : str = None):
+ @commands.command()
+ async def announce(self, ctx, *, message : str = None):
     content = ' '.join(args)
     announcement = discord.Embed(color=0x3B88C3)
     author_name = f'{message.author.name}#{message.author.discriminator}'
