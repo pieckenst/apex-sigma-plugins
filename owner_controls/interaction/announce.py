@@ -3,7 +3,7 @@
 
 
 @commands.command()
-async def announce(cmd, message, args):
+async def announce(ctx ,message, args):
     content = ' '.join(args)
     announcement = discord.Embed(color=0x3B88C3)
     author_name = f'{message.author.name}#{message.author.discriminator}'
