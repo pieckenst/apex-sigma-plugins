@@ -13,11 +13,11 @@ async def announce(self, ctx, *, message : str = None):
     sent_counter = 0
     for server in self.bot.guilds:
         try:
-            await guild.owner.send(embed=announcement)
+            await ctx.send(embed=announcement)
             sent_counter += 1
         except discord.Forbidden:
             pass
         except discord.NotFound:
             pass
     response = discord.Embed(color=0x77B255, title=f'✅ Announcement sent to {sent_counter} guilds.')
-    await message.channel.send(embed=response)
+    await ctx.send(embed=response)
