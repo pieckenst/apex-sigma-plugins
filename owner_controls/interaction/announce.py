@@ -1,13 +1,13 @@
 ﻿import discord
 
-from sigma.core.utilities.data_processing import user_avatar
 
 
+@commands.command()
 async def announce(cmd, message, args):
     content = ' '.join(args)
     announcement = discord.Embed(color=0x3B88C3)
     author_name = f'{message.author.name}#{message.author.discriminator}'
-    announcement.set_author(name=author_name, icon_url=user_avatar(message.author))
+    announcement.set_author(name=author_name, url=member.avatar_url)
     announcement.add_field(name=f'🌐 A Global {cmd.bot.user.name} Announcement', value=content)
     announcement.set_footer(text=f'Announced from {message.guild.name}', icon_url=message.guild.icon_url)
     sent_counter = 0
